@@ -1,0 +1,73 @@
+Step: step-credential-initializer-x4pxk:
+
+{"level":"warn","ts":1566476445.1969328,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566476445.1984138,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: step-working-dir-initializer-4gv9g:
+
+{"level":"warn","ts":1566476446.105874,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1566476446.1083705,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/charts/test013\""}
+Step: step-place-tools:
+
+Step: step-git-source-daemin9527-test013-master-zlmwc:
+
+{"level":"warn","ts":1566476453.1910815,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566476454.6165013,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/daemin9527/test013.git @ v0.0.1 in path /workspace/source"}
+Step: step-git-merge:
+
+WARNING: no SHAs to merge, falling back to initial cloned commit
+Step: step-setup-**-git-credentials:
+
+Generated Git credentials file /workspace/xdg_config/git/credentials
+Step: step-build-make-build:
+
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/test013 main.go
+Step: step-build-container-build:
+
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/test013"]                      
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+ERROR: logging before flag.Parse: E0822 12:21:10.264831      10 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E0822 12:21:10.269983      10 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/08/22 12:21:10 pushed blob: sha256:9302940f2f6dbfa38ab673e403b4f522b68d272502b7b278d55e4d22b741a24e
+2019/08/22 12:21:10 pushed blob: sha256:64fa590aa13efdafe6c6b114034206017a46dee40727eeb9e9487622375050b4
+2019/08/22 12:21:10 10.108.185.151:5000/daemin9527/test013:0.0.1: digest: sha256:67140157a271eee325446f757613f9e82e74be903deec8b723e080cfcce8c13f size: 428
+Step: step-build-post-build:
+
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+Step: step-promote-changelog:
+
+Converted /workspace/source/charts/test013 to an unshallow repository
+no previous commit version found so change diff unavailable
+Step: step-promote-helm-release:
+
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file test013-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+Step: step-promote-**-promote:
+
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+Promoting app test013 version 0.0.1 to namespace **-staging
+WARNING: Waiting for the fork of **********/environment-lanternclover-staging to appear...
+Forked Git repository to https://github.com/**********/environment-lanternclover-staging
+Created Pull Request: https://github.com/daemin9527/environment-lanternclover-staging/pull/1
+Added label  to Pull Request https://github.com/daemin9527/environment-lanternclover-staging/pull/1
+Pull Request https://github.com/daemin9527/environment-lanternclover-staging/pull/1 is merged at sha e389b7af950c0d393438c224e3ffd855b1883150
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names test013, **-test013, **-staging-test013
