@@ -1,0 +1,52 @@
+Step: step-credential-initializer-dnktq:
+
+{"level":"warn","ts":1566478436.9320896,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566478436.9345753,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: step-working-dir-initializer-2qkw6:
+
+{"level":"warn","ts":1566478438.3959384,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1566478438.397631,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+Step: step-place-tools:
+
+Step: step-git-source-meta-daemin9527-test013-pr-1-se-skg8p:
+
+{"level":"warn","ts":1566478444.5374122,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566478445.9344578,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/daemin9527/test013.git @ 27014c0b6ac9ca73505ab95902b80aaa26f6a708 in path /workspace/source"}
+Step: step-git-merge:
+
+{"level":"info","msg":"Using SHAs from PULL_REFS=master:27014c0b6ac9ca73505ab95902b80aaa26f6a708,1:7abd6d01bb064c0dde45b96052754c477ad6233f","time":"2019-08-22T12:54:07Z"}
+{"level":"debug","msg":"ran git fetch --unshallow origin 7abd6d01bb064c0dde45b96052754c477ad6233f: 27014c0b6ac9ca73505ab95902b80aaa26f6a708: in ","time":"2019-08-22T12:54:08Z"}
+{"level":"debug","msg":"ran git checkout master in ","time":"2019-08-22T12:54:08Z"}
+{"level":"debug","msg":"ran git reset --hard 27014c0b6ac9ca73505ab95902b80aaa26f6a708 in ","time":"2019-08-22T12:54:08Z"}
+{"level":"debug","msg":"ran clean --force -d . in ","time":"2019-08-22T12:54:08Z"}
+{"level":"debug","msg":"ran git merge 7abd6d01bb064c0dde45b96052754c477ad6233f in ","time":"2019-08-22T12:54:08Z"}
+MERGED SHA SUBJECT
+7abd6d01b  2th
+8a51d3016  1th commit
+Step: step-merge-pull-refs:
+
+{"level":"debug","msg":"ran git fetch origin 7abd6d01bb064c0dde45b96052754c477ad6233f: 27014c0b6ac9ca73505ab95902b80aaa26f6a708: in ","time":"2019-08-22T12:54:10Z"}
+{"level":"debug","msg":"Unshallowed git repo in ","time":"2019-08-22T12:54:10Z"}
+{"level":"debug","msg":"ran git checkout master in ","time":"2019-08-22T12:54:10Z"}
+{"level":"debug","msg":"ran git reset --hard 27014c0b6ac9ca73505ab95902b80aaa26f6a708 in ","time":"2019-08-22T12:54:10Z"}
+{"level":"debug","msg":"ran clean --force -d . in ","time":"2019-08-22T12:54:10Z"}
+{"level":"debug","msg":"ran git merge 7abd6d01bb064c0dde45b96052754c477ad6233f in ","time":"2019-08-22T12:54:10Z"}
+MERGED SHA SUBJECT
+7abd6d01b  2th
+8a51d3016  1th commit
+Step: step-create-effective-pipeline:
+
+{"level":"info","msg":"Deleting and cloning the Jenkins X versions repo","time":"2019-08-22T12:54:10Z"}
+{"level":"info","msg":"Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions","time":"2019-08-22T12:54:10Z"}
+{"level":"info","msg":"Effective pipeline written to jenkins-x-serverless-jenkins-effective.yml","time":"2019-08-22T12:54:17Z"}
+Step: step-create-tekton-crds:
+
+{"level":"warning","msg":"failed to find secret kaniko-secret in namespace **: secrets \"kaniko-secret\" not found","time":"2019-08-22T12:54:19Z"}
+{"level":"info","msg":"PipelineActivity for daemin9527-test013-PR-1-2","time":"2019-08-22T12:54:19Z"}
+{"level":"info","msg":"Applying changes ","time":"2019-08-22T12:54:19Z"}
+{"level":"info","msg":"Checking if batch build reconciling is needed","time":"2019-08-22T12:54:19Z"}
+{"level":"info","msg":"upserted PipelineResource daemin9527-test013-pr-1-serverl for the git repository https://github.com/daemin9527/test013.git and branch PR-1","time":"2019-08-22T12:54:19Z"}
+{"level":"info","msg":"upserted Task daemin9527-test013-pr-1-serverl-dtm9m-from-build-pack-2","time":"2019-08-22T12:54:19Z"}
+{"level":"info","msg":"upserted Pipeline daemin9527-test013-pr-1-serverl-dtm9m-2","time":"2019-08-22T12:54:19Z"}
+{"level":"info","msg":"created PipelineRun daemin9527-test013-pr-1-serverl-dtm9m-2","time":"2019-08-22T12:54:19Z"}
+{"level":"info","msg":"created PipelineStructure daemin9527-test013-pr-1-serverl-dtm9m-2","time":"2019-08-22T12:54:19Z"}
